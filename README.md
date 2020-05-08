@@ -10,12 +10,8 @@ The script requires the iTunes XML file, which is not created by iTunes by defau
 3. Click to enable the `Share iTunes Library XML with other applications` box
 
 
-## Build Using Docker
-First, build the docker image using `docker build -t itunes_backup .`
-This only needs to be done once, or if the script is updated.
-
-
 ## Run Using Docker
+This example will pull the Docker image from Docker Hub.
 The script expects two paths to exist:
 
   - `/iTunes` - Containing the iTunes XML file. Ex: `C:\Users\foo\Music\iTunes`
@@ -25,4 +21,10 @@ These paths should be set when running docker.
 The below example will mount the local iTunes directory for a user names "foo" and playlists will be
 exported to the user's Downloads directory in a new folder called itunes_backup
 
-`docker run -v C:\Users\foo\Music\iTunes:/iTunes -v C:\Users\foo\Downloads\itunes_backup:/export itunes_backup`
+`docker run -v C:\Users\foo\Music\iTunes:/iTunes -v C:\Users\foo\Downloads\itunes_backup:/export reeves122/itunes_backup`
+
+
+## Build Using Docker
+You can also build the docker image manually from the source code:
+
+`docker build -t itunes_backup .`
